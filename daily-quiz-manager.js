@@ -3,7 +3,7 @@
 // Make sure to maintain the same structure for each question object.
 const questions = [
     {
-        questionText: "What is programming language?",
+        questionText: "What is the largest planet in our solar system?",
         options: ["Earth", "Mars", "Jupiter", "Saturn"],
         correctAnswerIndex: 2
     },
@@ -13,12 +13,12 @@ const questions = [
         correctAnswerIndex: 1
     },
     {
-        questionText: "what is software?",
+        questionText: "Who wrote 'Romeo and Juliet'?",
         options: ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"],
         correctAnswerIndex: 1
     },
     {
-        questionText: "What is header?",
+        questionText: "What is the capital of Japan?",
         options: ["Beijing", "Seoul", "Tokyo", "Bangkok"],
         correctAnswerIndex: 2
     },
