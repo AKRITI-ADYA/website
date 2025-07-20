@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Quiz - EDUSTUDS</title>
+    <link rel="stylesheet" href="./xyz.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #fff; background-color: #1a1a1a; display: flex; flex-direction: column; align-items: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; text-align: center; }
+        .quiz-container { background-color: #2c2c2c; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3); max-width: 800px; width: 100%; margin-top: 20px; }
+        .question { margin-bottom: 20px; text-align: left; }
+        .question p { font-size: 1.1em; font-weight: bold; color: #fff; }
+        .options label { display: block; margin: 10px 0; cursor: pointer; padding: 10px; border-radius: 5px; background-color: #3b3b3b; transition: background-color 0.3s; }
+        .options label:hover { background-color: #555; }
+        .submit-button { padding: 10px 20px; font-size: 1em; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s; }
+        .submit-button:hover { background-color: #0056b3; }
+        #result { margin-top: 20px; font-size: 1.2em; font-weight: bold; color: #fff; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="english-education.html" class="bi bi-arrow-left-circle"></a>
+    </nav>
+    <div class="quiz-container">
+        <h1>English Quiz</h1>
+        <form id="english-quiz-form">
+            <div class="question"><p>Which of the following is a verb?</p><div class="options"><label><input type="radio" name="q1" value="a"> Beautiful</label><label><input type="radio" name="q1" value="b"> Quickly</label><label><input type="radio" name="q1" value="c"> Run</label></div></div>
+            <div class="question"><p>What is the plural of "child"?</p><div class="options"><label><input type="radio" name="q2" value="a"> Childs</label><label><input type="radio" name="q2" value="b"> Children</label><label><input type="radio" name="q2" value="c"> Childes</label></div></div>
+            <div class="question"><p>Identify the noun in the sentence: "The cat sat on the mat."</p><div class="options"><label><input type="radio" name="q3" value="a"> sat</label><label><input type="radio" name="q3" value="b"> on</label><label><input type="radio" name="q3" value="c"> cat</label></div></div>
+            <div class="question"><p>Which word is a synonym for "happy"?</p><div class="options"><label><input type="radio" name="q4" value="a"> Sad</label><label><input type="radio" name="q4" value="b"> Joyful</label><label><input type="radio" name="q4" value="c"> Tired</label></div></div>
+            <div class="question"><p>Fill in the blank: "She is a very ____ singer."</p><div class="options"><label><input type="radio" name="q5" value="a"> good</label><label><input type="radio" name="q5" value="b"> well</label><label><input type="radio" name="q5" value="c"> nicely</label></div></div>
+            <div class="question"><p>What is an antonym for "brave"?</p><div class="options"><label><input type="radio" name="q6" value="a"> Strong</label><label><input type="radio" name="q6" value="b"> Fearful</label><label><input type="radio" name="q6" value="c"> Kind</label></div></div>
+            <div class="question"><p>Correct the sentence: "He don't like apples."</p><div class="options"><label><input type="radio" name="q7" value="a"> He don't likes apples.</label><label><input type="radio" name="q7" value="b"> He doesn't like apples.</label><label><input type="radio" name="q7" value="c"> He do not like apples.</label></div></div>
+            <div class="question"><p>What is a simile?</p><div class="options"><label><input type="radio" name="q8" value="a"> A comparison using "like" or "as".</label><label><input type="radio" name="q8" value="b"> A direct comparison.</label><label><input type="radio" name="q8" value="c"> A figure of speech that uses exaggeration.</label></div></div>
+            <div class="question"><p>Which is a proper noun?</p><div class="options"><label><input type="radio" name="q9" value="a"> city</label><label><input type="radio" name="q9" value="b"> cat</label><label><input type="radio" name="q9" value="c"> London</label></div></div>
+            <div class="question"><p>What is the past tense of the verb "to eat"?</p><div class="options"><label><input type="radio" name="q10" value="a"> eated</label><label><input type="radio" name="q10" value="b"> ate</label><label><input type="radio" name="q10" value="c"> eaten</label></div></div>
+            <button type="submit" class="submit-button">Submit Quiz</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script>
+        document.getElementById('english-quiz-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const resultDiv = document.getElementById('result');
+            let score = 0;
+            const q1Answer = document.querySelector('input[name="q1"]:checked');
+            const q2Answer = document.querySelector('input[name="q2"]:checked');
+            const q3Answer = document.querySelector('input[name="q3"]:checked');
+            const q4Answer = document.querySelector('input[name="q4"]:checked');
+            const q5Answer = document.querySelector('input[name="q5"]:checked');
+            const q6Answer = document.querySelector('input[name="q6"]:checked');
+            const q7Answer = document.querySelector('input[name="q7"]:checked');
+            const q8Answer = document.querySelector('input[name="q8"]:checked');
+            const q9Answer = document.querySelector('input[name="q9"]:checked');
+            const q10Answer = document.querySelector('input[name="q10"]:checked');
+
+            if (q1Answer && q1Answer.value === 'c') { score++; }
+            if (q2Answer && q2Answer.value === 'b') { score++; }
+            if (q3Answer && q3Answer.value === 'c') { score++; }
+            if (q4Answer && q4Answer.value === 'b') { score++; }
+            if (q5Answer && q5Answer.value === 'a') { score++; }
+            if (q6Answer && q6Answer.value === 'b') { score++; }
+            if (q7Answer && q7Answer.value === 'b') { score++; }
+            if (q8Answer && q8Answer.value === 'a') { score++; }
+            if (q9Answer && q9Answer.value === 'c') { score++; }
+            if (q10Answer && q10Answer.value === 'b') { score++; }
+
+            resultDiv.textContent = `Your score is ${score} out of 10.`;
+        });
+    </script>
+</body>
+</html>

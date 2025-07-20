@@ -1,0 +1,177 @@
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Universal styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none; /* Removes underline from all anchor tags by default */
+}
+
+body {
+    background-color: black;
+    /* Consider adding min-height: 100vh; if you want the body to always take full viewport height,
+       though for this layout, .main section covers it well. */
+}
+
+/* Main Section */
+.main {
+    width: 100%;
+    height: 100vh;
+    /* background-image: rgb(0, 0, 0); - This is incorrect. Use background-color or a linear-gradient if you want a color overlay. */
+    background-color: rgba(0, 0, 0, 0.5); /* Added a semi-transparent black overlay for better video contrast */
+    position: relative;
+    /* padding: 0.5%; - This padding might affect the full-bleed video. Consider handling it with inner elements or leave it. */
+    display: flex;
+    align-items: center; /* Vertically centers content */
+    justify-content: center; /* Horizontally centers content */
+    overflow: hidden; /* Important to prevent video scrollbars */
+}
+
+/* Navigation bar */
+nav {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 8%; /* Top/bottom padding 20px, left/right padding 8% */
+    display: flex;
+    align-items: center; /* Vertically aligns items in the nav */
+    justify-content: space-between; /* Puts space between logo and nav links */
+    z-index: 10; /* Ensures nav is above the video */
+}
+
+.logo {
+    font-size: 35px;
+    font-weight: 600;
+    color: #fff;
+    /* text-transform: uppercase; - Optional: if you want the logo to be always uppercase */
+}
+
+nav ul {
+    list-style-type: none; /* Removes bullet points from the unordered list */
+    margin: 0; /* Ensures no default margin */
+    padding: 0; /* Ensures no default padding */
+}
+
+nav ul li {
+    display: inline-block; /* Makes list items display in a row */
+    margin-left: 40px;
+}
+
+nav ul li a {
+    color: #fff;
+    font-size: 17px;
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+nav ul li a:hover {
+    color: #b791be;
+}
+
+/* Main Content */
+.content {
+    text-align: center;
+    position: relative; /* Needed if you want to use z-index on content later or for positioning */
+    z-index: 5; /* Ensures content is above the video but below the nav if needed */
+}
+
+.content h1 {
+    font-size: 160px;
+    color: #fff;
+    margin-bottom: 20px; /* Added some space below the heading */
+    line-height: 1; /* Adjust if needed for spacing */
+}
+
+.content a {
+    color: white;
+    font-size: 24px;
+    border: 2px solid #fff;
+    padding: 14px 70px;
+    border-radius: 50px;
+    /* margin-top: 10px; - This won't work well on an inline element. Use display: inline-block or block if you want top margin. */
+    display: inline-block; /* Essential for padding, margin-top, and width/height to work correctly */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.content a:hover {
+    background-color: #fff;
+    color: black;
+}
+
+.dashboard {
+    position: absolute;
+    top: 0; /* Ensure it starts from the top */
+    left: 0; /* Ensure it starts from the left */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This is key for the video to cover the entire container */
+    z-index: -1; /* Puts the video behind other content */
+    background-size: cover;
+}
+/* Main Section End */
+
+/* Exhibition Gallery Section */
+section {
+    padding: 30px 18%; /* Top/bottom 30px, left/right 18% */
+    background-color: black; /* Ensure consistent background if .main has an overlay */
+}
+
+.heading {
+    height: 150px;
+    color: #fff;
+    display: flex; /* Use flexbox for centering text vertically and horizontally */
+    align-items: center; /* Vertically centers the text */
+    justify-content: center; /* Horizontally centers the text */
+    text-align: center; /* Fallback for older browsers and general text alignment */
+    border: 1px solid rgba(193, 2, 142, 0.3);
+    border-radius: 10px;
+    margin-bottom: 30px; /* Added space below the heading box */
+}
+
+/* Flexbox Gallery */
+.flex_properties {
+    border: 1px solid rgb(193, 2, 142);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    justify-content: center; /* Centers items horizontally when they wrap */
+    gap: 10px; /* Adds space between flex items, a modern alternative to margins on children */
+    /* Uncomment and adjust these properties based on your desired layout */
+    /* flex-direction: row; (default) */
+    /* align-items: stretch; (default) */
+    /* align-content: stretch; (default) */
+}
+
+.flex_properties > div { /* Target direct children div of flex_properties */
+    border-radius: 10px;
+    /* margin: 10px; - Replaced with gap on parent for cleaner layout */
+    width: 200px; /* Increased base width for better visibility, adjust as needed */
+    height: 200px; /* Made it square, adjust as needed */
+    border: 2px solid white;
+    overflow: hidden; /* Ensures image doesn't overflow rounded corners */
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out; /* Smooth transition for hover effects */
+    flex-shrink: 0; /* Prevents items from shrinking too much if space is tight */
+    flex-grow: 0; /* Prevents items from growing if space is abundant, unless specified by flex-basis */
+}
+
+.flex_properties > div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images cover the div without distortion */
+    display: block; /* Removes extra space below images */
+}
+
+/* Individual Flex Item Hover Effect */
+.flexBox:hover {
+    /* order: 1; - Uncomment if you want the hovered item to reorder */
+    /* flex-grow: 1; - Uncomment if you want the hovered item to grow to fill available space */
+    /* flex-shrink: 3; - Uncomment if you want the hovered item to shrink more than others */
+    flex-basis: 300px; /* Example: make it wider on hover, adjust as needed */
+    transform: scale(1.05); /* Slightly enlarges the image on hover */
+    box-shadow: 0 0 15px rgba(193, 2, 142, 0.7); /* Adds a glow effect on hover */
+    z-index: 1; /* Brings the hovered item to the front */
+    /* align-self: center; - Uncomment if you want the hovered item to align itself differently within the cross-axis */
+}
